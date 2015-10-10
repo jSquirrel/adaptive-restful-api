@@ -69,4 +69,13 @@ public abstract class Filter {
      */
     public abstract HttpContext process(HttpContext context, Model model, Configuration configuration) throws FilterException;
 
+    /**
+     * Creates new instance of FilterChainBuilder which helps you build chain of Filters.
+     *
+     * @return New FilterChainBuilder instance.
+     */
+    public static FilterChainBuilder createChainBuilder() {
+        return new FilterChainBuilder();
+    }
+
 }
