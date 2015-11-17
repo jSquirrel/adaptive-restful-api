@@ -2,8 +2,6 @@
 package cz.cvut.fel.adaptiverestfulapi.core;
 
 import java.lang.reflect.Type;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 
 public class HttpRouter {
@@ -14,22 +12,13 @@ public class HttpRouter {
     private String resource;
     private String identifier;
 
-    public static HttpRouter createRouter(String url) {
-        try {
-            return new HttpRouter(url);
-
-        } catch (MalformedURLException e) {
-            return null;
-        }
+    public static HttpRouter createRouter(String path) {
+        return new HttpRouter(path);
     }
 
-    private HttpRouter(String url) throws MalformedURLException {
-        URL URL = new URL(url);
-
-        this.host = URL.getHost();
-        this.port = URL.getPort();
-        this.resource = this.resource(URL.getPath());
-        this.identifier = this.identifier(URL.getPath());
+    private HttpRouter(String path) {
+        this.resource = this.resource(path);
+        this.identifier = this.identifier(path);
     }
 
     protected String resource(String path) {
@@ -53,14 +42,6 @@ public class HttpRouter {
             path = path.substring(1);
         }
         return path.split("/");
-    }
-
-    public String getHost() {
-        return this.host;
-    }
-
-    public int getPort() {
-        return this.port;
     }
 
     public String getResource() {
