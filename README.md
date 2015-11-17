@@ -1,5 +1,7 @@
 # Adaptive RESTful API
 
+[![Build Status](https://travis-ci.org/jSquirrel/adaptive-restful-api.svg)](https://travis-ci.org/jSquirrel/adaptive-restful-api)
+
 An Adaptive RESTful API is a library for automatic HTTP request handling based on the chain of filters. It's written in Java and is dedicated to use within the Java EE applications.
 
 *NOTICE: This project is a result of the author's work on his diploma thesis.*
