@@ -11,17 +11,17 @@ import java.net.MalformedURLException;
 public class HttpRouterTest {
 
     @Test
-    public void testResource() {
-        HttpRouter router = HttpRouter.createRouter("http://adaptiveapi.cz/project/123");
+    public void testPathWithResourceAndIdentifier() {
+        HttpRouter router = HttpRouter.createRouter("/project/123");
         Assert.assertEquals(router.getResource(), "project");
         Assert.assertEquals(router.getIdentifier(), "123");
     }
 
     @Test
-    public void testResourceWithSubroute() {
-        HttpRouter router = HttpRouter.createRouter("http://adaptiveapi.cz/api/project/123");
+    public void testPathWithResourceOnly() {
+        HttpRouter router = HttpRouter.createRouter("/project");
         Assert.assertEquals(router.getResource(), "project");
-        Assert.assertEquals(router.getIdentifier(), "123");
+        Assert.assertNull(router.getIdentifier());
     }
 
 // TODO: add support for associations
