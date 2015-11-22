@@ -21,8 +21,16 @@ public class HttpContext {
     private HttpHeaders responseHeaders;
     private String responseContent;
 
-    public HttpContext(String uri, HttpMethod method, HttpHeaders headers, String content) {
-        this.router = HttpRouter.createRouter(uri);
+    /**
+     * HttpContext constructor.
+     *
+     * @param path    Path of the request.
+     * @param method  Method of the request.
+     * @param headers Headers of the request.
+     * @param content Body of the request.
+     */
+    public HttpContext(String path, HttpMethod method, HttpHeaders headers, String content) {
+        this.router = HttpRouter.createRouter(path);
         this.method = method;
         this.requestHeaders = headers;
         this.requestContent = content;

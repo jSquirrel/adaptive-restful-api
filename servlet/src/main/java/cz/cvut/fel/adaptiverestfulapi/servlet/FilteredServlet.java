@@ -43,7 +43,7 @@ public class FilteredServlet extends HttpServlet {
     }
 
     protected HttpContext read(HttpServletRequest request) throws IOException {
-        String url = request.getRequestURL().toString();
+        String url = request.getPathInfo();
         HttpMethod httpMethod = HttpMethod.valueOf(request.getMethod());
         HttpHeaders headers = this.headers(request);
         String content = this.content(request);
